@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "lib": ["es5", "es6", "DOM", "es2018", "esnext.asynciterable"],
+    "experimentalDecorators": true /* Enables experimental support for ES7 decorators. */,
+    "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
+    "target": "es2018",
+    "moduleResolution": "Node"
+  },
+
+  "exclude": ["node_modules", "test", "types"]
+}
