@@ -2,16 +2,15 @@ import "reflect-metadata";
 import express from "express";
 import { graphqlHTTP } from "express-graphql";
 import { buildSchema } from "type-graphql";
-import recipeResolver from "./modules/recipe/resolvers";
 import dotenv from "dotenv";
 import { isNil } from "lodash";
+// import Resolver from "./modules/recipe/resolvers";
 
 export default class App {
   static runServer = async () => {
     dotenv.config();
-
     const schema = await buildSchema({
-      resolvers: [recipeResolver],
+      resolvers: [`${__dirname}/modules/**/resolvers/index.ts`],
     });
 
     const app = express();
@@ -35,24 +34,3 @@ export default class App {
     return { serverPort };
   };
 }
-
-// export default async () => {
-//   // Construct a schema, using GraphQL schema language
-//   const schema = await buildSchema({
-//     resolvers: [recipeResolver],
-//   });
-
-//   const app = express();
-
-//   app.use(
-//     "/",
-//     graphqlHTTP({
-//       schema,
-//       graphiql: true,
-//     })
-//   );
-
-//   app.listen(4000);
-
-//   console.log("Running a GraphQL API server");
-// };

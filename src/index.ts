@@ -1,8 +1,7 @@
 import "reflect-metadata";
 import App from "./App";
 import DatabaseConnection from "./DatabaseConnection";
-import "reflect-metadata";
-
+import 'module-alias/register';
 async function init() {
   try {
     await DatabaseConnection.initialize();

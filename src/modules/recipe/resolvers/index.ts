@@ -4,7 +4,7 @@ import { SaveRecipeInput } from "../schemas/inputs";
 import { getAll, getOne, save } from "../services";
 
 @Resolver()
-export default class Resolvers {
+class Resolvers {
   @Query((_) => Recipe)
   async getOne(@Arg("recipeId") recipeId: number): Promise<Recipe> {
     const res = await getOne({ id: recipeId });
@@ -23,3 +23,5 @@ export default class Resolvers {
     return res;
   }
 }
+
+export default Resolvers;

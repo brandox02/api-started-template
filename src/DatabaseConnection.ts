@@ -2,12 +2,13 @@ import "reflect-metadata";
 import { DataSource } from "typeorm";
 import Entity from "./modules/recipe/schemas/types";
 import dotenv from "dotenv";
+import { Maybe } from "./types";
 // ./modules/**/schemas/index.schema.ts
 
 
-export let AppDataSource: DataSource | null = null;
+export let AppDataSource: Maybe<DataSource>;
 export default class DatabaseConnection {
-  static AppDataSource: DataSource | null = null;
+  static AppDataSource: Maybe<DataSource>;
 
   static initialize = () => {
     dotenv.config();
